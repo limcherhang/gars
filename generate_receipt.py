@@ -2,7 +2,7 @@ import logging
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-from func import generate_pdf_receipt, df_to_dict
+import func
 
 logger = logging.getLogger()
 logging.basicConfig(
@@ -39,18 +39,18 @@ descriptions = {
 }
 
 logger.info("Prepare to generate pdf receipt")
-generate_pdf_receipt(
+func.generate_pdf_receipt(
     filename,
     company_name,
     company_address,
     company_phone,
     receipt_number,
     receipt_date,
-    descriptions,
     angle,
     images,
     font,
-    client_name,
+    client_name, 
     client_num,
     logger,
+    descriptions
 )

@@ -1,9 +1,6 @@
 import logging
 from reportlab.pdfgen import canvas
 from reportlab.lib import units
-from typing import Union
-import pandas as pd
-from pandas.core.frame import DataFrame
 
 logger = logging.getLogger(__name__)
 
@@ -12,15 +9,15 @@ def generate_pdf_receipt(
     company_name: str,
     company_address: str,
     company_phone: str,
-    receipt_number: str,    
+    receipt_number: str,
     receipt_date: str,
-    descriptions: dict,
-    angle: Union[int, float],
+    angle: str,
     images: str,
     font: str,
     client_name: str,
     client_num: str,
     logger: logging.Logger,
+    descriptions: dict
 ):
     total = 0
 
@@ -97,8 +94,3 @@ def generate_pdf_receipt(
     # 完成並關閉PDF檔案
     pdf_file.showPage()
     pdf_file.save()
-
-
-def df_to_dict(df: DataFrame):
-    return df.to_dict("records")
-
