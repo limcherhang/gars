@@ -20,28 +20,30 @@ pdfmetrics.registerFont(TTFont("simsun", "simsun.ttf"))
 
 # 參數
 angle = 0  # 旋轉角度
-images = "log.png"  # 圖片名稱
+images = "logo.png"  # 圖片名稱
 
 # 設置收據信息
 client_name = "小明先生"
 client_num = "A12345"
 company_name = "全球针灸紧急救援传统与辅助医学学会"
-company_address = "1234 Main St, Anytown, USA"
-company_phone = "(555) 555-5555"
-receipt_number = "001-002-0001234"
+company_english_name = "GLOBAL ACUPUNCTURE RESCUE TRADITIONAL AND COMPLEMENTARY MEDICAL SOCIETY (GARS)"
+company_address = ["NO. DAFTAR: PPM-022-07-06072022", "2A, Jalan Indah, Taman Bukit Indah", "14000 Bukit Mertajam", "PULAU PINANG"]
+company_phone = "017-326 9318/016-521 0420"
+email = "garsmy07@gmail.com"
+receipt_number = "0149"
 receipt_date = "2023-03-06"
 filename = "receipt"
 
 # 設置費用信息
 descriptions = {
-    "1": {"description": "服務費", "price": 1000.00, "tax": 0.05},
-    "2": {"description": "會費", "price": 200.00, "tax": 0.05},
+    "1": {"description": "入會費", "English": "Membership Registration Fee",  "price": 1000.00, "cash": "Yes"},
 }
 
 logger.info("Prepare to generate pdf receipt")
 func.generate_pdf_receipt(
     filename,
     company_name,
+    company_english_name,
     company_address,
     company_phone,
     receipt_number,
